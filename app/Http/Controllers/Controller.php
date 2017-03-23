@@ -9,5 +9,24 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+	protected function __construct()
+	{
+		$this->page_attributes 	= new \StdClass;
+		$this->page_datas 		= new \StdClass;
+
+		\View::share('page_attributes', $this->getPageAttributes());
+		\View::share('page_datas', $this->getPageAttributes());
+	}
+
+	private function &getPageAttributes() 
+	{
+		return $this->page_attributes;
+	}
+
+	private function &getPageDatas() 
+	{
+		return $this->page_datas;
+	}
 }

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Thunderlabid\Application\Queries\Navigation\NavbarService;
-
 use Input, Exception, Redirect, URL, TAuth;
 
 /**
@@ -17,12 +15,12 @@ use Input, Exception, Redirect, URL, TAuth;
  */
 class DashboardController extends Controller
 {
-	/**
-	 * Creates construct from controller to get instate some stuffs
-	 */
 	public function __construct()
 	{
-		// parent::__construct();
+		parent::__construct();
+
+		$this->page_attributes->title 		= 'Dashboard';
+		$this->page_attributes->active_nav 	= ['dashboard'];
 	}
 
 	/**
@@ -32,15 +30,11 @@ class DashboardController extends Controller
 	 */
 	public function index()
 	{
-		$navbars 		= NavbarService::all();
-
-		$navbar 		= view('navigation.top', compact('navbars'));
-
 		$messages 		= 'Under Construction';
 		
-		$akta 			= view('errors.section', compact('messages'));
-		$klien 			= view('errors.section', compact('messages'));
+		// $akta 			= view('errors.section', compact('messages'));
+		// $klien 			= view('errors.section', compact('messages'));
 
-		return view('dashboard.index')->with('navbar', $navbar)->with('akta', $akta)->with('klien', $klien);
+		return view('dashboard.index');
 	}
 }

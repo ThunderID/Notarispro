@@ -49,3 +49,6 @@ Route::get('logout',	['uses' => 'LoginController@logout', 		'as' => 'login.destr
 
 //Menu Dashboard
 Route::get('dashboard', 	['uses' => 'DashboardController@index', 'as' => 'dashboard.index']);
+
+//Menu Tagihan Controller
+Route::resource('tagihan', 'TagihanController');

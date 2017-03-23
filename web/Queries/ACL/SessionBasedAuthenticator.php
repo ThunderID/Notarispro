@@ -1,6 +1,6 @@
 <?php
 
-namespace Thunderlabid\Application\Queries\ACL;
+namespace Thunderlabid\Web\Queries\ACL;
 
 ///////////////
 //   Models  //
@@ -10,12 +10,12 @@ use Thunderlabid\Immigration\Models\Pengguna as Model;
 use Hash, Exception, Session;
 
 /**
- * Class Services Application
+ * Class Services Web
  *
  * Meyimpan visa dari user tertentu.
  *
  * @package    Thunderlabid
- * @subpackage Application
+ * @subpackage Web
  * @author     C Mooy <chelsy@thunderlab.id>
  */
 class SessionBasedAuthenticator

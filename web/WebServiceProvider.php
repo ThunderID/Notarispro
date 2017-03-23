@@ -1,13 +1,13 @@
 <?php
 
-namespace Thunderlabid\Application;
+namespace Thunderlabid\Web;
 
 use Illuminate\Support\ServiceProvider;
 
 class WebServiceProvider extends ServiceProvider
 {
 	/**
-	 * Bootstrap the application services.
+	 * Bootstrap the Web services.
 	 *
 	 * @return void
 	 */
@@ -17,13 +17,13 @@ class WebServiceProvider extends ServiceProvider
 	}
 
 	/**
-	 * Register the application services.
+	 * Register the Web services.
 	 *
 	 * @return void
 	 */
 	public function register()
 	{
 		//
-		$this->app->bind('TAuth', 'Thunderlabid\Application\Queries\ACL\SessionBasedAuthenticator');
+		$this->app->bind('TAuth', 'Thunderlabid\Web\Queries\ACL\SessionBasedAuthenticator');
 	}
 }

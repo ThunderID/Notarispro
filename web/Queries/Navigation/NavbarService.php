@@ -1,5 +1,5 @@
 <?php
-namespace Thunderlabid\Application\Queries\Navigation;
+namespace Thunderlabid\Web\Queries\Navigation;
 /**
  * Kelas Navbar
  *
@@ -38,20 +38,32 @@ class NavbarService
 				'akta'		=>	[
 									'route' => null,
 									'sub'	=> 	[
-													'drafting' 		=> route('dashboard.index'),
-													'data_akta'		=> route('dashboard.index'),
-												]				
+													'drafting' 		=> [
+														'route'		=> route('dashboard.index'),
+														'sub'	=> []
+													],
+													'data_akta'		=> [
+														'route'		=> route('dashboard.index'),
+														'sub'	=> []
+													],
+												]
 								],
 				'klien'		=>	[
 									'route' => null,
 									'sub'	=> 	[
-													'appointment' 	=> route('dashboard.index')
-												]				
+													'appointment' 	=> [
+														'route'		=> route('dashboard.index'),
+														'sub'	=> []
+													],
+												]
 								],
 				'keuangan'	=>	[
 									'route' => null,
 									'sub'	=> 	[
-													'billing' 		=> route('dashboard.index')
+													'tagihan' 		=> [
+														'route'		=> route('tagihan.index'),
+														'sub'	=> []
+													],
 												]				
 								],
 			]; 
