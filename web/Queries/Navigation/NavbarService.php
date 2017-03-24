@@ -62,7 +62,11 @@ class NavbarService
 									'sub'	=> 	[
 													'tagihan' 		=> [
 														'route'		=> route('tagihan.index'),
-														'sub'	=> []
+														'sub'		=> []
+													],
+													'tagihan_baru' 	=> [
+														'route'		=> route('tagihan.create'),
+														'sub'		=> []
 													],
 												]				
 								],

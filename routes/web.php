@@ -52,3 +52,6 @@ Route::get('dashboard', 	['uses' => 'DashboardController@index', 'as' => 'dashbo
 
 //Menu Tagihan Controller
 Route::resource('tagihan', 'TagihanController');
+
+Route::any('tagihan/dummy/get', 	['uses' => 'TagihanController@dummyget', 	'as' => 'tagihan.dummy.get']);
+Route::any('tagihan/dummy/post', 	['uses' => 'TagihanController@dummypost', 	'as' => 'tagihan.dummy.post']);

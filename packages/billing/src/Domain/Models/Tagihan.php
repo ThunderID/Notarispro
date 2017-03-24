@@ -137,5 +137,18 @@ class Tagihan extends BaseModel
 
 		return $this;
 	}
-	/* ---------------------------------------------------------------------------- SCOPES ----------------------------------------------------------------------------*/
+
+
+	/**
+	 * remove tagihan detail
+	 *
+	 */	
+	public function removeTagihanDetail($value)
+	{
+		$detail 		= TagihanDetail::findorfail($value);
+		$detail->delete();
+
+		return $this;
+	}
+		/* ---------------------------------------------------------------------------- SCOPES ----------------------------------------------------------------------------*/
 }

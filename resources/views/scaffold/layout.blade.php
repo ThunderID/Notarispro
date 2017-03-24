@@ -31,6 +31,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 	<link href="{!!url('/paper/assets/css/themify-icons.css')!!}" rel="stylesheet">
 
+	@stack('styles')
+
 </head>
 <body>
 
@@ -66,11 +68,13 @@
 	</div>
 </div>
 
+@stack('before_body')
 
 </body>
 
 	<!--   Core JS Files   -->
 	<script src="{!!url('/paper/assets/js/jquery-1.10.2.js')!!}" type="text/javascript"></script>
+
 	<script src="{!!url('/paper/assets/js/bootstrap.min.js')!!}" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
@@ -94,18 +98,17 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 
-			demo.initChartist();
+			// $.notify({
+			// 	icon: 'ti-gift',
+			// 	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
 
-			$.notify({
-				icon: 'ti-gift',
-				message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+			// },{
+			// 	type: 'success',
+			// 	timer: 4000
+			// });
+		} );
 
-			},{
-				type: 'success',
-				timer: 4000
-			});
-
-		});
 	</script>
 
+	@stack('scripts')
 </html>

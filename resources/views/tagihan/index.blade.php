@@ -43,7 +43,7 @@
 									<td>{{$value['total']}}</td>
 									<td>{{$value['jatuh_tempo']}}</td>
 									<td>
-										<a href="#">
+										<a href="#" data-toggle="modal" data-target="#myModal">
 											Hapus
 										</a>
 									</td>
@@ -66,3 +66,34 @@
 		</div>
 	</div>
 @endsection
+
+@push('before_body')
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<form action="{{route('tagihan.destroy', ['id' => null])}}" method="DELETE">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Hapus Tagihan</h4>
+					</div>
+					<div class="modal-body">
+						<p>Menghapus tagihan akan mengirim email pembatalan tagihan kepada klien</p>
+						<p class="text-warning"><small>Tagihan yang dihapus tidak dapat di kembalikan</small></p>
+					</div>
+					<div class="modal-footer">
+						<div class="row text-center">
+							<div class="col-sm-6">
+								<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Batal</button>
+							</div>
+							<div class="col-sm-6">
+								<button type="submit" class="btn btn-danger btn-simple">Hapus</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+@endpush
