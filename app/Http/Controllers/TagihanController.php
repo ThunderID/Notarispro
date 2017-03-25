@@ -57,18 +57,7 @@ class TagihanController extends Controller
 		$tagihan 		= new Tagihan;
 		$tagihan 		= $tagihan->findorfail($id);
 
-		$this->page_attributes->search_result 		= 'Menampilkan data ';
-
-
-		if(Input::has('q'))
-		{
-			$tagihan 	= $tagihan->where('dikeluarkan_untuk', 'like', '%'.Input::get('q').'%');
-			$this->page_attributes->search_result 		= 'Pencarian Nama "'.Input::get('q').'"';
-		}
-
-		$tagihan 		= $tagihan->simplePaginate(10);
-
-		return view('tagihan.index', compact('tagihan'));
+		return view('tagihan.show', compact('tagihan'));
 	}
 
 	/**
@@ -78,12 +67,39 @@ class TagihanController extends Controller
 	 */
 	public function create()
 	{
+		$this->page_attributes->active_nav 	= ['keuangan', 'tagihan_baru'];
+
 		return view('tagihan.create', compact('tagihan'));
+	}
+
+	/**
+	 * store data kredit baru
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$input 		= Input::all();
+
+		$details 	= Session::get('tagihan_detail');
+
+		$tagihan 	= new Tagihan;
+		$tagihan->fill($input);
+
+		foreach ($details as $key => $value) 
+		{
+			$tagihan->addTagihanDetail($value);
+		}
+
+		$tagihan->save();
+
+		Session::forget('tagihan_detail');
+		
+		return Redirect::route('tagihan.index');
 	}
 
 	public function dummyget()
 	{
-		Session::flush();
 		$data 		= [];
 
 		if(Session::has('tagihan_detail'))

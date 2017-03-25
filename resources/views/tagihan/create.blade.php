@@ -15,7 +15,7 @@
 					</div>
 				</div>
 				<div class="content">
-					<form>
+					<form method="post" action="{{route('tagihan.store')}}">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
@@ -101,7 +101,7 @@
 						name: "deskripsi"
 					}, {
 						label: "Total Biaya",
-						name: "total_biaya"
+						name: "jumlah"
 					}, {
 						label: "Diskon",
 						name: "diskon"
@@ -126,7 +126,7 @@
 						orderable: false
 					},
 					{ data: "deskripsi" },
-					{ data: "total_biaya" },
+					{ data: "jumlah" },
 					{ data: "diskon" }
 				],
 				select: {
